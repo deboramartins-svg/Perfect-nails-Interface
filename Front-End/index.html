@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Nails Studio | Design & Estética</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --rosa-claro: #fff5f6;
+            --rosa-destaque: #f8d7da;
+            --rosa-escuro: #d4a5a9;
+            --texto: #5a4a4b;
+            --branco: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--rosa-claro); 
+            color: var(--texto);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            background-color: var(--branco);
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo { font-family: 'Playfair Display', serif; font-weight: bold; color: var(--rosa-escuro); font-size: 1.5rem; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--texto);
+            margin-left: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-login-nav {
+            background-color: var(--rosa-escuro);
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 50px;
+        }
+
+        /* --- HEADER --- */
+        header {
+            height: 70vh;
+            background: linear-gradient(rgba(255, 245, 246, 0.6), rgba(255, 245, 246, 0.6)), 
+                        url('https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); color: var(--rosa-escuro); }
+        header p { font-size: 1.2rem; font-style: italic; letter-spacing: 2px; }
+
+        /* --- SEÇÕES --- */
+        .secao { padding: 80px 10%; text-align: center; }
+        .titulo-secao { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 40px; color: var(--rosa-escuro); }
+
+        /* --- SERVIÇOS --- */
+        .grid-servicos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card-servico {
+            background: var(--branco);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid var(--rosa-destaque);
+            transition: 0.3s;
+        }
+        .card-servico img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px; }
+
+        /* --- SLIDER DE DEPOIMENTOS --- */
+        .depoimentos { background-color: var(--rosa-destaque); overflow: hidden; }
+        .window-slider { width: 100%; overflow: hidden; padding: 20px 0; margin-bottom: 30px; }
+        .track-comentarios {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+            animation: deslizar 30s linear infinite;
+        }
+        .track-comentarios:hover { animation-play-state: paused; }
+
+        @keyframes deslizar {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .balao {
+            background: var(--branco);
+            padding: 25px;
+            border-radius: 20px;
+            width: 300px;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .autor { display: block; margin-top: 10px; font-weight: bold; color: var(--rosa-escuro); font-size: 0.8rem; }
+
+        /* --- CARD POSTAR COMENTÁRIO --- */
+        .card-postar {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            border-left: 5px solid var(--rosa-escuro);
+            text-align: left;
+        }
+
+        .user-info { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .user-avatar { width: 35px; height: 35px; background: var(--rosa-destaque); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--rosa-escuro); }
+        .input-comentario { width: 100%; border: none; outline: none; resize: none; font-family: inherit; font-size: 0.9rem; color: #666; background: transparent; }
+        .acoes-comentario { display: flex; justify-content: flex-end; border-top: 1px solid #f8d7da; padding-top: 10px; margin-top: 10px; }
+        
+        .btn-postar { 
+            background-color: var(--rosa-escuro); color: white; border: none; padding: 8px 20px; 
+            border-radius: 20px; cursor: pointer; font-weight: 600; transition: 0.3s;
+        }
+        .btn-postar:hover { background-color: #bc8f8f; transform: scale(1.05); }
+
+        /* --- AGENDAMENTO --- */
+        .calendario-box {
+            background: var(--branco);
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        .btn-confirmar {
+            width: 100%; padding: 15px; background: var(--rosa-escuro); color: white;
+            border: none; border-radius: 50px; font-weight: bold; margin-top: 25px; cursor: pointer; transition: 0.3s;
+        }
+        .btn-confirmar:hover { transform: scale(1.02); background: #bc8f8f; }
+
+        label { display: block; margin-top: 15px; font-weight: 600; font-size: 0.8rem; color: #888; text-transform: uppercase; }
+
+        input[type="date"], select {
+            width: 100%; padding: 12px; margin-top: 5px; border: 1px solid var(--rosa-destaque); border-radius: 10px; outline: none; color: var(--texto);
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Perfect Nails</div>
+        <div class="nav-links">
+            <a href="#servicos">Serviços</a>
+            <a href="#agendamento">Agendar</a>
+            <a href="login.html" class="btn-login-nav">Entrar / Cadastrar</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Perfect Nails Studio</h1>
+        <p>Sua beleza em boas mãos</p>
+        <a href="#agendamento" class="btn-postar" style="margin-top: 20px; padding: 12px 30px; text-decoration: none;">RESERVAR AGORA</a>
+    </header>
+
+    <section id="servicos" class="secao">
+        <h2 class="titulo-secao">Nossos Serviços</h2>
+        <div class="grid-servicos">
+            <div class="card-servico">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop" alt="Manicure">
+                <h3>Manicure Design</h3>
+                <p>Cutilagem e esmaltação impecável.</p>
+            </div>
+            <div class="card-servico">
+                <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=1948&auto=format&fit=crop" alt="Alongamento">
+                <h3>Alongamento em Gel</h3>
+                <p>Unhas resistentes e naturais.</p>
+            </div>
+            <div class="card-servico">
+                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2069&auto=format&fit=crop" alt="Pedicure">
+                <h3>Pedicure Luxo</h3>
+                <p>Spa e hidratação completa.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="secao depoimentos">
+        <h2 class="titulo-secao">O que dizem nossas clientes</h2>
+        
+        <div class="window-slider">
+            <div class="track-comentarios">
+                <div class="balao">"Atendimento impecável! Minhas unhas nunca duraram tanto." <span class="autor">- Mariana Silva</span></div>
+                <div class="balao">"Ambiente relaxante e a Débora é uma profissional maravilhosa." <span class="autor">- Juliana Costa</span></div>
+                <div class="balao">"Melhor studio da região. O alongamento ficou super natural!" <span class="autor">- Beatriz Oliveira</span></div>
+                <div class="balao">"Amei o café e o cuidado com cada detalhe. Nota 10!" <span class="autor">- Carla Menezes</span></div>
+                <div class="balao">"O brilho do gel é surreal, já faz 15 dias e parece que fiz hoje." <span class="autor">- Fernanda Lima</span></div>
+                <div class="balao">"Atendimento impecável! Minhas unhas nunca duraram tanto." <span class="autor">- Mariana Silva</span></div>
+                <div class="balao">"Ambiente relaxante e a Débora é uma profissional maravilhosa." <span class="autor">- Juliana Costa</span></div>
+            </div>
+        </div>
+
+        <div class="card-postar">
+            <div class="user-info">
+                <div class="user-avatar">?</div>
+                <span class="user-name">Sua Experiência</span>
+            </div>
+            <textarea id="textoComentario" class="input-comentario" placeholder="Conte como foi seu atendimento..." rows="2"></textarea>
+            <div class="acoes-comentario">
+                <button onclick="postarFeedback()" class="btn-postar">Postar Comentário</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="agendamento" class="secao">
+        <h2 class="titulo-secao">Agende sua Visita</h2>
+        <div class="calendario-box">
+            <label>O que vamos fazer hoje?</label>
+            <select id="servicoSelecionado">
+                <option>Manicure Design (R$ 45,00)</option>
+                <option>Alongamento em Gel (R$ 130,00)</option>
+                <option>Pedicure Luxo (R$ 50,00)</option>
+            </select>
+
+            <label>Qual a melhor data?</label>
+            <input type="date" id="dataAgendamento">
+
+            <label>Escolha um horário:</label>
+            <select id="horarioAgendamento">
+                <option>09:00</option>
+                <option>10:30</option>
+                <option>14:00</option>
+                <option>16:00</option>
+            </select>
+
+            <button onclick="agendarFeedback()" class="btn-confirmar">CONFIRMAR AGENDAMENTO</button>
+        </div>
+    </section>
+
+    <script>
+        function postarFeedback() {
+            const texto = document.getElementById('textoComentario').value;
+            if(texto.trim() === "") {
+                alert("Por favor, digite um comentário antes de postar! 😊");
+            } else {
+                alert("Obrigada pelo seu comentário! Ele foi enviado para moderação e aparecerá no slider em breve. ✨");
+                document.getElementById('textoComentario').value = "";
+            }
+        }
+
+        function agendarFeedback() {
+            const dataOriginal = document.getElementById('dataAgendamento').value;
+            const servico = document.getElementById('servicoSelecionado').value;
+            const horario = document.getElementById('horarioAgendamento').value;
+            
+            if(dataOriginal === "") {
+                alert("Por favor, selecione uma data para o seu agendamento. 📅");
+            } else {
+                // Correção da data: Invertendo Ano-Mes-Dia para Dia/Mes/Ano
+                const partes = dataOriginal.split("-");
+                const dataBR = partes[2] + "/" + partes[1] + "/" + partes[0];
+
+                alert("Sucesso! ✨\n\nSeu agendamento de '" + servico + "' foi solicitado para o dia " + dataBR + " às " + horario + "h.\n\nEntraremos em contato via WhatsApp para confirmar! 💅💖");
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro | Perfect Nails</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #fff5f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+        .card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 450px; text-align: center; border-top: 5px solid #d4a5a9; }
+        h2 { color: #d4a5a9; margin-bottom: 5px; }
+        p.subtitle { font-size: 0.8rem; color: #888; margin-bottom: 20px; line-height: 1.2; }
+        
+        .grupo-input { text-align: left; margin-bottom: 15px; }
+        label { font-size: 0.75rem; font-weight: 600; color: #d4a5a9; margin-left: 5px; text-transform: uppercase; }
+        
+        input { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #f8d7da; border-radius: 10px; outline: none; transition: 0.3s; }
+        input:focus { border-color: #d4a5a9; box-shadow: 0 0 5px rgba(212, 165, 169, 0.3); }
+
+        .btn { width: 100%; padding: 12px; background: #d4a5a9; color: white; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 15px; transition: 0.3s; }
+        .btn:hover { background-color: #bc8f8f; transform: translateY(-2px); }
+        
+        p.footer { font-size: 0.9rem; margin-top: 20px; color: #5a4a4b; }
+        a { color: #d4a5a9; font-weight: bold; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Criar Nova Conta</h2>
+        <p class="subtitle">Cadastre-se para agendar e avaliar nossos serviços.</p>
+        
+        <div class="grupo-input">
+            <label>Nome Completo</label>
+            <input type="text" id="nomeCompleto" placeholder=" Ex: Valentina Ferreira Ramos">
+        </div>
+
+        <div class="grupo-input">
+            <label>Nome de Usuário (Como aparecerá nos comentários)</label>
+            <input type="text" id="username" placeholder="Ex: Valentina Ramos">
+        </div>
+
+        <div class="grupo-input">
+            <label>WhatsApp</label>
+            <input type="tel" id="whatsapp" placeholder="(00) 00000-0000">
+        </div>
+
+        <div class="grupo-input">
+            <label>E-mail</label>
+            <input type="email" id="email" placeholder="seu@email.com">
+        </div>
+
+        <div class="grupo-input">
+            <label>Crie uma senha</label>
+            <input type="password" id="senha" placeholder="******">
+        </div>
+        
+        <button class="btn" onclick="finalizarCadastro()">CONCLUIR CADASTRO</button>
+        
+        <p class="footer">Já é de casa? <a href="login.html">Faça Login</a></p>
+    </div>
+
+    <script>
+        function finalizarCadastro() {
+            const nomeExibicao = document.getElementById('username').value;
+            const nomeCompleto = document.getElementById('nomeCompleto').value;
+
+            if(nomeCompleto === "" || nomeExibicao === "") {
+                alert("Por favor, preencha seu nome e escolha um nome de usuário! 😊");
+            } else {
+                alert("Tudo pronto, " + nomeExibicao + "! ✨\n\nSua conta foi criada. Agora use seu e-mail e senha para entrar.");
+                window.location.href = "login.html";
+            }
+        }
+    </script>
+</body>
+</html>
