@@ -6,6 +6,9 @@ Este projeto é uma interface **Front-End** completa e elegante desenvolvida par
 **Em andamento** 🛠️  
 O design das páginas e o catálogo de serviços já estão operacionais. No momento, estou refinando a lógica de agendamento dinâmico e a integração de preços dos serviços selecionados na interface final.
 
+Para visualizar o projeto, clique no link abaixo:
+
+https://perfect-nails-interface.vercel.app/
 
 ---
 *Beleza e tecnologia caminhando juntas para a melhor experiência das clientes.*
